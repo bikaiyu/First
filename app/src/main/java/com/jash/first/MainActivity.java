@@ -1,5 +1,6 @@
 package com.jash.first;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -49,7 +50,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             } else {
                 adapter.notifyItemRangeRemoved(position + 1, count - 1);
             }
-
         }
     }
 }
