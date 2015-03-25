@@ -6,12 +6,12 @@ import java.util.List;
 /**
  * Created by jash on 15-3-21.
  */
-public class Tree<T> {
+public class Node<T> {
     private T t;
     private boolean isOpen = false;
-    private List<Tree<T>> trees = new ArrayList<>();
+    private List<Node<T>> nodes = new ArrayList<>();
     private int level = -1;
-    public Tree(T t) {
+    public Node(T t) {
         this.t = t;
     }
 
@@ -28,28 +28,28 @@ public class Tree<T> {
     }
 
     public void setIsOpen(boolean isOpen) {
-        this.isOpen = isOpen && trees != null && !trees.isEmpty();
+        this.isOpen = isOpen && nodes != null && !nodes.isEmpty();
     }
 
-    public void add(Tree tree){
-        tree.level = level + 1;
-        trees.add(tree);
+    public void add(Node node){
+        node.level = level + 1;
+        nodes.add(node);
     }
 
-    public Tree<T> getItem(int position){
+    public Node<T> getItem(int position){
         if (level != -1){
             position--;
         }
         if (position < 0){
             return this;
         }
-        for (Tree tree:trees){
-            int count = tree.getCount();
+        for (Node node : nodes){
+            int count = node.getCount();
             if (position < count){
                 if (count == 1){
-                    return tree;
+                    return node;
                 } else {
-                    return tree.getItem(position);
+                    return node.getItem(position);
                 }
             }
             position -= count;
@@ -64,8 +64,8 @@ public class Tree<T> {
         if (level == -1){
             count = 0;
         }
-        for (Tree tree:trees){
-            count += tree.getCount();
+        for (Node node : nodes){
+            count += node.getCount();
         }
         return count;
     }

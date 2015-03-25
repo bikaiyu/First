@@ -11,15 +11,15 @@ import android.widget.TextView;
  */
 public class TreeAdapter extends RecyclerView.Adapter<TreeAdapter.ViewHolder> {
     private Context context;
-    private Tree<String> tree;
+    private Node<String> node;
     private View.OnClickListener listener;
-    public TreeAdapter(Context context, Tree<String> tree) {
+    public TreeAdapter(Context context, Node<String> node) {
         this.context = context;
-        this.tree = tree;
+        this.node = node;
         listener = (View.OnClickListener) context;
     }
-    public Tree<String> getTree(int position){
-        return tree.getItem(position);
+    public Node<String> getTree(int position){
+        return node.getItem(position);
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -42,17 +42,17 @@ public class TreeAdapter extends RecyclerView.Adapter<TreeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        ((TextView) viewHolder.itemView).setText(tree.getItem(position).getT());
+        ((TextView) viewHolder.itemView).setText(node.getItem(position).getT());
     }
 
     @Override
     public int getItemViewType(int position) {
-        return tree.getItem(position).getLevel();
+        return node.getItem(position).getLevel();
     }
 
     @Override
     public int getItemCount() {
-        return tree.getCount();
+        return node.getCount();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
