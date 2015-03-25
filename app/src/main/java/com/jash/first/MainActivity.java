@@ -50,6 +50,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             } else {
                 adapter.notifyItemRangeRemoved(position + 1, count - 1);
             }
+
         }
     }
 }
