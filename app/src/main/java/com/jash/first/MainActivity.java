@@ -18,6 +18,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Node<String> node = new Node<>(null);
+
+
+
+
+
         for (int i = 0; i < 5; i++) {
             Node<String> t_1 = new Node<>(String.format("level %d, %d", 1, i));
             node.add(t_1);
